@@ -10,18 +10,18 @@
 </head>
 
 <body>
-    <form>
-        <label for="name">Product Name: </label>
-        <input type="text" name="prodName" id="name" />
+    <form id="createForm" action="addProdDb.php">
+        <label for="prodName">Product Name: </label>
+        <input type="text" name="prodName" id="prodName" />
 
-        <label for="price">Price: </label>
-        <input type="number" name="prodPrice" id="price" />
+        <label for="prodPrice">Price: </label>
+        <input type="number" name="prodPrice" id="prodPrice" />
 
-        <label for="file">Product Image: </label>
-        <input type="file" name="prodImg" id="file" accept="image/jpeg" />
+        <label for="prodImg">Product Image: </label>
+        <input type="file" name="prodImg" id="prodImg" />
 
-        <label for="descrpition">Product Description: </label>
-        <input type="text" name="prodDescrpition" id="descrpition" />
+        <label for="prodDescrpition">Product Description: </label>
+        <input type="text" name="prodDescrpition" id="prodDescrpition" />
 
         <input type="submit" value="Submit" />
 
@@ -29,7 +29,7 @@
 
 
 
-    <script src=" https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
             // Handle form submission
@@ -38,10 +38,10 @@
                 event.preventDefault();
 
                 // Get the input values
-                var name = $('#name').val();
-                var price = $('#price').val();
-                var file = $('#file').val();
-                var description = $('#description').val();
+                var pname = $('#prodName').val()
+                var price = $('#prodPrice').val();
+                var file = $('#prodImg').val();
+                var description = $('#prodDescrpition').val();
 
 
                 // Make AJAX request
@@ -49,10 +49,10 @@
                     url: 'addProdDb.php', // URL of the server-side script
                     type: 'POST',
                     data: {
-                        name: name,
+                        pname: pname,
                         price: price,
                         file: file,
-                        decription: description
+                        description: description
                     }, // Data to be sent to the server
                     success: function(response) {
                         // Handle success response
