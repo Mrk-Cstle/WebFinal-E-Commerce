@@ -43,7 +43,7 @@ https://templatemo.com/tm-559-RRMM-shop
         <div class="container">
           <div class="row p-5">
             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-              <img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="" />
+              <img class="img-fluid" src="./assets/img/nikelogo.png" alt="" />
             </div>
             <div class="col-lg-6 mb-0 d-flex align-items-center">
               <div class="text-align-left align-self-center">
@@ -69,7 +69,7 @@ https://templatemo.com/tm-559-RRMM-shop
         <div class="container">
           <div class="row p-5">
             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-              <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="" />
+              <img class="img-fluid" src="./assets/img/adidaslogoo.png" alt="" />
             </div>
             <div class="col-lg-6 mb-0 d-flex align-items-center">
               <div class="text-align-left">
@@ -90,7 +90,7 @@ https://templatemo.com/tm-559-RRMM-shop
         <div class="container">
           <div class="row p-5">
             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-              <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="" />
+              <img class="img-fluid" src="./assets/img/jordan.png" alt="" />
             </div>
             <div class="col-lg-6 mb-0 d-flex align-items-center">
               <div class="text-align-left">
@@ -121,7 +121,7 @@ https://templatemo.com/tm-559-RRMM-shop
   <section class="container py-5">
     <div class="row text-center pt-3">
       <div class="col-lg-6 m-auto">
-        <h1 class="h1">Categories of The Month</h1>
+        <h1 class="h1">Top Seller</h1>
         <p>
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
           officia deserunt mollit anim id est laborum.
@@ -130,18 +130,18 @@ https://templatemo.com/tm-559-RRMM-shop
     </div>
     <div class="row">
       <div class="col-12 col-md-4 p-5 mt-3">
-        <a href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border" /></a>
-        <h5 class="text-center mt-3 mb-3">Watches</h5>
+        <a href="#"><img src="./assets/img/jordan4Militarry.png" class="rounded-circle img-fluid border" /></a>
+        <h5 class="text-center mt-3 mb-3">Jordan</h5>
         <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
       </div>
       <div class="col-12 col-md-4 p-5 mt-3">
-        <a href="#"><img src="./assets/img/category_img_02.jpg" class="rounded-circle img-fluid border" /></a>
-        <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
+        <a href="#"><img src="./assets/img/NikeBlazerMid1.png" class="rounded-circle img-fluid border" /></a>
+        <h2 class="h5 text-center mt-3 mb-3">Nike</h2>
         <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
       </div>
       <div class="col-12 col-md-4 p-5 mt-3">
-        <a href="#"><img src="./assets/img/category_img_03.jpg" class="rounded-circle img-fluid border" /></a>
-        <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
+        <a href="#"><img src="./assets/img/stansmith.png" class="rounded-circle img-fluid border" /></a>
+        <h2 class="h5 text-center mt-3 mb-3">Adidas</h2>
         <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
       </div>
     </div>

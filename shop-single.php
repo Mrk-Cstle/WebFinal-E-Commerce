@@ -87,7 +87,7 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_01.jpg" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="assets/img/jordanUnion.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
