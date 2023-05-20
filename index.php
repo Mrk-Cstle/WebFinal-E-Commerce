@@ -16,13 +16,7 @@
   <!-- Load fonts style after rendering the layout styles -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap" />
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
-  <!--
-    
-TemplateMo 559 Zay Shop
 
-https://templatemo.com/tm-559-RRMM-shop
-
--->
 </head>
 
 <body>
@@ -45,6 +39,7 @@ https://templatemo.com/tm-559-RRMM-shop
             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
               <img class="img-fluid" src="./assets/img/nikelogo.png" alt="" />
             </div>
+            
             <div class="col-lg-6 mb-0 d-flex align-items-center">
               <div class="text-align-left align-self-center">
                 <h1 class="h1 text-success"><b>RRMM</b> eCommerce</h1>
@@ -158,7 +153,7 @@ https://templatemo.com/tm-559-RRMM-shop
 
   <!-- Footer -->
   <?php
-  include 'assets/include/footer.php'
+  include 'assets/include/footerS.php'
   ?>
 
   <!-- Start Script -->
