@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php include "assets/include/session.php"?>
 <head>
     <title>RRMM - Product Listing Page</title>
     <meta charset="utf-8">
@@ -134,8 +134,10 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                             <div class="card-body">
                                 <a href="shop-single.html" class="h3 text-decoration-none">Jordan 4 Guava</a>
+                                
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                     <li>Size 7-12 Mens and Womens</li>
+                                    <a id = "cartBtn" href="shop.php?pro_id=1" class="shop_btn btn btn-success">Add to Cart</a>
                                     <li class="pt-2">
                                         <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
                                         <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
@@ -173,6 +175,7 @@ https://templatemo.com/tm-559-zay-shop
                                 <a href="shop-single.html" class="h3 text-decoration-none">Lebron 20 All-Time-Record</a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                     <li>Size 7-14 Mens</li>
+                                    <a href="shop.php?pro_id=2" class="btn btn-success">Add to Cart</a>
                                     <li class="pt-2">
                                         <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
                                         <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
@@ -580,7 +583,7 @@ https://templatemo.com/tm-559-zay-shop
 
     <!-- Start Footer -->
     <?php
-    include 'assets/include/footer.php'
+    include 'assets/include/footerS.php'
     ?>
     <!-- End Footer -->
 
@@ -590,6 +593,33 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
+    crossorigin="anonymous"></script>
+    <script>
+        $(document).ready (function (i) {
+         i.preventDefault
+            $('#cartBtn').click(function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "shop.php?pro_id=1"
+                   
+                });
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('cartCount').innerHTML= xhr.responseText;
+                }
+            };
+           xhr.open("GET", 'assets/include/asd.php', true);
+            xhr.send();
+            });
+           
+        });
+       
+    </script>
+    <!-- <script>$('.shop_btn').click( function(e){e.preventDefault; return false;})</script> -->
     <!-- End Script -->
 </body>
 
