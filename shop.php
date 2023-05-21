@@ -145,106 +145,86 @@ https://templatemo.com/tm-559-zay-shop
                     <?php
                     include 'login/include/selectDb.php';
                     ?>
-                    <h3>Product List</h3>
-                    <table>
-                        <tr>
-                            <th>Image</th>
-                            <th>Product Name</th>
-                            <th>Brand</th>
-                            <th>Price</th>
-                            <th>Description</th>
-                        </tr>
-                        <?php
-                        if (mysqli_num_rows($resultProd) > 0) {
 
-                            while ($row  = $resultProd->fetch_assoc()) {
+                    <?php
+                    if (mysqli_num_rows($resultProd) > 0) {
 
-                        ?>
-                                <div class="col-md-4">
-                                    <div class="card mb-4 product-wap rounded-0">
-                                        <div class="card rounded-0">
-                                            <img class="card-img rounded-0 img-fluid" src="login/uploads/<?= $row['file_path'] ?>">
-                                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                        while ($row  = $resultProd->fetch_assoc()) {
 
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <a href="shop-single.html" id="cartBtn" class=" h3 text-decoration-none"><?php echo $row['fname']; ?></a>
-                                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                                <li><?php echo $row['brand']; ?></li>
-                                                <a href="shop.php?pro_id=qwe" data-value="shop.php?pro_id=3" id="cartBtn" class="btn btn-success">Add to Cart</a>
-                                                <li class="pt-2">
-                                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                                </li>
-                                            </ul>
+                    ?>
+                            <div class="col-md-4">
+                                <div class="card mb-4 product-wap rounded-0">
+                                    <div class="card rounded-0">
+                                        <img class="card-img rounded-0 img-fluid" src="login/uploads/<?= $row['file_path'] ?>">
+                                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
 
-                                            <p class="text-center mb-0">$ <?php echo $row['price']; ?></p>
                                         </div>
                                     </div>
-                                </div>
-                                <tr>
-                                    <td><img src="uploads/<?= $row['file_path'] ?>"></td>
-                                    <td><?php echo $row['product_id']; ?></td>
-                                    <td><?php echo $row['fname']; ?></td>
-                                    <td><?php echo $row['brand']; ?></td>
-                                    <td><?php echo $row['price']; ?></td>
-                                    <td><?php echo $row['info']; ?></td>
-                                    <td><a href="createStaffDelete.php?id=<?php echo $row['product_id']; ?>">Remove</a></td>
-
-                                </tr>
-
-
-
-
-                        <?php
-                            }
-                            echo "</table>";
-                        } else {
-                            echo "<tr><td>" . "0 result" . "</td><td></table>";
-                        }
-                        ?>
-
-                        <div class="col-md-4">
-                            <div class="card mb-4 product-wap rounded-0">
-                                <div class="card rounded-0">
-                                    <img class="card-img rounded-0 img-fluid" src="assets/img/AdidasSamba.png">
-                                    <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                        <ul class="list-unstyled">
-                                            <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                            <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                            <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                    <div class="card-body">
+                                        <a href="shop-single.html" id="cartBtn" class=" h3 text-decoration-none"><?php echo $row['fname']; ?></a>
+                                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                            <li><?php echo $row['brand']; ?></li>
+                                            <a href="cart.php" class="cartBtn btn btn-success" data-pro-id="<?php echo $row['fname']; ?>">Add to Cart</a>
+                                            <li class="pt-2">
+                                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                            </li>
                                         </ul>
+
+                                        <p class="text-center mb-0">$ <?php echo $row['price']; ?></p>
                                     </div>
-                                </div>
-                                <div class="card-body">
-                                    <a href="shop-single.html" class="h3 text-decoration-none">Adidas Samba</a>
-                                    <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                        <li>Size 6-12 Mens and Womens</li>
-                                        <li class="pt-2">
-                                            <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                            <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                            <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                            <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                            <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                        </li>
-                                    </ul>
-                                    <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                        <li>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-muted fa fa-star"></i>
-                                            <i class="text-muted fa fa-star"></i>
-                                        </li>
-                                    </ul>
-                                    <p class="text-center mb-0">$250.00</p>
                                 </div>
                             </div>
+
+
+
+
+
+                    <?php
+                        }
+                    }
+                    ?>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/AdidasSamba.png">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Adidas Samba</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Size 6-12 Mens and Womens</li>
+                                    <li class="pt-2">
+                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                    </li>
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
                         </div>
+                    </div>
 
 
 
@@ -285,19 +265,26 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/custom.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function(i) {
-            i.preventDefault
-            $('#cartBtn').click(function(e) {
-                e.preventDefault();
+        $(document).ready(function() {
+            $('.cartBtn').click(function(event) {
+                event.preventDefault();
 
-                var myValue = $(this).data('value');
+                var product_id = $(this).data('pro-id');
+
                 $.ajax({
-                    type: "POST",
-                    url: "shop.php?pro_id=3",
+                    url: 'shop.php',
+                    type: 'GET',
                     data: {
-                        myValue: myValue
+                        pro_id: product_id
                     },
-
+                    success: function(response) {
+                        // Handle success response
+                        console.log(response);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                        console.log(error);
+                    }
                 });
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
@@ -308,8 +295,33 @@ https://templatemo.com/tm-559-zay-shop
                 xhr.open("GET", 'assets/include/asd.php', true);
                 xhr.send();
             });
-
         });
+
+        // $(document).ready(function(i) {
+        //     i.preventDefault
+        //     $('#cartBtn').click(function(e) {
+        //         e.preventDefault();
+
+        //         var myValue = $(this).data('value');
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "shop.php?pro_id=3",
+        //             data: {
+        //                 myValue: myValue
+        //             },
+
+        //         });
+        //         var xhr = new XMLHttpRequest();
+        //         xhr.onreadystatechange = function() {
+        //             if (xhr.readyState == 4 && xhr.status == 200) {
+        //                 document.getElementById('cartCount').innerHTML = xhr.responseText;
+        //             }
+        //         };
+        //         xhr.open("GET", 'assets/include/asd.php', true);
+        //         xhr.send();
+        //     });
+
+        // });
     </script>
     <!-- <script>$('.shop_btn').click( function(e){e.preventDefault; return false;})</script> -->
     <!-- End Script -->
