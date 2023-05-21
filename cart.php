@@ -23,7 +23,7 @@
 
 <body>
   <div class="container">
-    <table class="table my-3">
+    <table id="cartTable" class="table my-3">
       <a href="emptycart.php" class="btn btn-sm btn-danger mt-2">Empty Cart</a>
       <thead>
         <tr class="text-center">
@@ -40,7 +40,7 @@
           $i = 1;
           foreach ($_SESSION['cart'] as $cart) :
         ?>
-            <tr class="text-center">
+            <tr class=" text-center">
               <td><?php echo $i; ?> # </td>
               <td> Product <?= $cart['pro_id']; ?></td>
               <td>
@@ -52,7 +52,7 @@
                 <input type="submit" name="update" value="Update" class="btn btn-sm btn-warning">
                 </form>
               </td>
-              <td><a class="btn btn-sm btn-danger" href="removecartitem.php?id=<?= $cart['pro_id']; ?>">Remove</a></td>
+              <td> <a class="btn btn-sm btn-danger removeCartItem" data-pro-id="<?= $cart['pro_id']; ?>">Remove</a></td>
             </tr>
         <?php
             $i++;
@@ -62,6 +62,37 @@
       </tbody>
     </table>
   </div>
+  <!-- jQuery AJAX code -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+      $('.removeCartItem').click(function(event) {
+        event.preventDefault();
+
+        var product_id = $(this).data('pro-id');
+
+        $.ajax({
+          url: 'removecartitem.php',
+          type: 'GET',
+          data: {
+            id: product_id
+          },
+          success: function(response) {
+            // Handle success response
+            console.log(response);
+            $('body ').html(response);
+
+            // Optionally, you can update the table or refresh the page after successful removal
+            // Update table or refresh page logic goes here
+          },
+          error: function(xhr, status, error) {
+            // Handle error
+            console.log(error);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 <?php include 'footerS.php'; ?>
 
