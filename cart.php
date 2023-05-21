@@ -23,7 +23,7 @@
 <body>
 <div class="container">
   <table class="table my-3">
-    <a href="emptycart.php" class="btn btn-sm btn-danger mt-2">Empty Cart</a>
+    <a href="emptycart.php" class="btn btn-sm btn-danger mt-2">sdadasdasEmpty Cart</a>
     <thead>
       <tr class="text-center">
         <th>S.no</th>
