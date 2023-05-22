@@ -30,7 +30,9 @@
           <th>S.no</th>
           <th>Product Name</th>
           <th>Quantity</th>
+          <th>Price</th>
           <th colspan="2">Action</th>
+
         </tr>
       </thead>
 
@@ -38,28 +40,36 @@
         <?php
         if (isset($_SESSION['cart'])) :
           $i = 1;
+          $totalPrice = 0; // Initialize total price variable
+
           foreach ($_SESSION['cart'] as $cart) :
+            $itemPrice = $cart['price'];
+            $itemQuantity = $cart['qty'];
+            $subtotal = $itemPrice * $itemQuantity;
+            $totalPrice += $subtotal;
         ?>
             <tr class=" text-center">
               <td><?php echo $i; ?> # </td>
               <td> Product <?= $cart['pro_id']; ?></td>
               <td>
-                <form action="update.php" method="post">
-                  <input type="number" value="<?= $cart['qty']; ?>" name="qty" min="1">
-                  <input type="hidden" name="upid" value="<?= $cart['pro_id']; ?>">
+                <?= $cart['qty']; ?>
               </td>
-              <td>
-                <input type="submit" name="update" value="Update" class="btn btn-sm btn-warning">
-                </form>
-              </td>
+              <td><?= $cart['price']; ?></td>
+
               <td> <a class="btn btn-sm btn-danger removeCartItem" data-pro-id="<?= $cart['pro_id']; ?>">Remove</a></td>
             </tr>
         <?php
             $i++;
           endforeach;
+          echo '<tr>
+          <td colspan="3"></td>
+          <td class="text-center"><strong>Total Price: ₱ ' . $totalPrice . '</strong></td>
+          <td></td>
+        </tr>';
         endif;
         ?>
       </tbody>
+
     </table>
   </div>
   <!-- jQuery AJAX code -->
