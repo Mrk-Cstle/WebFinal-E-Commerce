@@ -1,10 +1,8 @@
-<nav id="navStyle" class="navbar navbar-expand-lg navbar-light shadow">
+<nav class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand text-success logo h1 align-self-center" href="login/Login.php">
+        <a class="navbar-brand text-success logo h1 align-self-center" href="">
             RRMM
         </a>
-
-
 
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,14 +12,19 @@
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="#">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
+                        <a class="nav-link" href="addProduct.php">Add Product</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="shop.php">Shop</a>
+                        <a class="nav-link" href="#">Log out</a>
                     </li>
+
 
                 </ul>
             </div>
