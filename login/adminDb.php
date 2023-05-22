@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) == 1) {
 
     if (isset($_SESSION['logged_in'])  == true) {
         // user is logged in
-        header("location:adminHome.php");
+        header("location:addProduct.php");
     } else {
         // redirect to login page
         header("location:Login.php");

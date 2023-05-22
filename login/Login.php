@@ -19,7 +19,7 @@
 
                 <header>Login</header>
 
-                <form id="myForm" method="POST" action="adminHome.php">
+                <form id="myForm" method="POST" action="adminDb.php">
 
 
                     <div class="input-field">
