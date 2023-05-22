@@ -174,7 +174,7 @@ https://templatemo.com/tm-559-zay-shop
                                             </li>
                                         </ul>
 
-                                        <p class="text-center mb-0">$ <?php echo $row['price']; ?></p>
+                                        <p class="text-center mb-0">P <?php echo $row['price']; ?></p>
                                     </div>
                                 </div>
                             </div>
