@@ -253,7 +253,8 @@ https://templatemo.com/tm-559-zay-shop
 
     <!-- Start Footer -->
     <?php
-    include 'assets/include/footerS.php'
+    include 'assets/include/footer.php';
+    include 'footerS.php';
     ?>
     <!-- End Footer -->
 
