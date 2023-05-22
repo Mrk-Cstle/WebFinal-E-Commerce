@@ -39,3 +39,6 @@
 background-color: var(--Naples-yellow);
 color:rgb(2, 1, 1);
 }
+.nav-logo{
+    height: 70px;
+}
