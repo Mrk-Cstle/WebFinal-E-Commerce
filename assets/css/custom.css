@@ -1,3 +1,41 @@
 /*
-Custom Css
+
 */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Poppins:ital,wght@1,600&display=swap');
+#navStyle{
+    background-color: #4f770e;
+}
+
+
+:root{
+    --Naples-yellow: #FADA5F;
+}.nav-link {
+    color: aliceblue!important;
+}
+.nav-icon .fa {
+    color: aliceblue!important;
+}
+.navbar-brand {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600!important;
+}
+.bg-dark {
+    background-color: #221902!important;
+}
+.navbar-brand {
+    color: #ffb700!important;
+}
+.h2 {
+    color: #ca9203!important;
+}
+#text-logo {
+    color: #ffb700;
+    font-family: 'Times New Roman', Times, serif;
+}
+.bg-background {
+    background-color: #221902;
+}
+.bg-brown{
+background-color: var(--Naples-yellow);
+color:rgb(2, 1, 1);
+}

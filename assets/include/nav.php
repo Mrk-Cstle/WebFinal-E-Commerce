@@ -1,3 +1,11 @@
+<<<<<<< Updated upstream
+=======
+<nav id="navStyle" class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand text-success logo h1 align-self-center" href="login/Login.php">
+            RRMM
+        </a>
+>>>>>>> Stashed changes
 
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">

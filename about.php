@@ -54,7 +54,7 @@ https://templatemo.com/tm-559-zay-shop
 
 
 
-    <section class="bg-success py-5">
+    <section class="bg-background py-5">
         <div class="container">
             <div class="row align-items-center py-5">
                 <div class="col-md-8 text-white">
