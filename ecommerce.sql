@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2023 at 03:15 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: May 22, 2023 at 04:38 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -51,7 +51,7 @@ CREATE TABLE `product` (
   `file_path` varchar(50) NOT NULL,
   `price` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `info` varchar(100) NOT NULL,
+  `info` varchar(255) NOT NULL,
   `brand` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -60,17 +60,16 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `fname`, `file_path`, `price`, `date`, `info`, `brand`) VALUES
-(61, '', 'IMG-6469fc99375b88.60268758.jpg', 0, '2023-05-21 19:12:25', '', ''),
-(62, '', 'IMG-6469fcbfd63c11.45052846.jpeg', 0, '2023-05-21 19:13:03', '', ''),
-(63, '', 'IMG-6469fd38939233.04247280.jpeg', 0, '2023-05-21 19:15:04', '', ''),
-(64, '', 'IMG-6469fd78027c63.17295695.jpg', 0, '2023-05-21 19:16:08', '', ''),
-(65, 'qweqwe', 'IMG-6469fe04b22360.39697283.jpg', 0, '2023-05-21 19:18:28', '', ''),
-(66, 'wer', 'IMG-6469fe6b0c63d4.64827129.jpg', 2, '2023-05-21 19:20:11', 'werwer', 'wer'),
-(67, 'qweqwe', 'IMG-646a0505681743.58135203.jpg', 222, '2023-05-21 19:48:21', 'qwe', 'qwe'),
-(68, 'qweqweqwe', 'IMG-646a0524e237b0.99486478.jpeg', 213123, '2023-05-21 19:48:52', 'qweqweqwe', '2222'),
-(69, '', 'IMG-646a05387bae42.04867556.jpg', 0, '2023-05-21 19:49:12', '', ''),
-(70, '', 'IMG-646a058f913f80.45799766.jpg', 0, '2023-05-21 19:50:39', '', ''),
-(71, '', 'IMG-646a05a0031eb7.64254706.jpg', 0, '2023-05-21 19:50:56', '', '');
+(78, 'Jordan 4 Manila ', 'IMG-646b6f231483b0.47078759.png', 1400000, '2023-05-22 21:33:23', 'Premium materials have been utilized on the Air Jordan 4, ranging from ostrich and pebbled leathers to suede.', 'Jordan'),
+(83, 'Adidas Stan Smith ', 'IMG-646b7274ad7a41.62066687.png', 5000, '2023-05-22 21:47:32', 'Adidas has made efforts to manufacture the shoe sustainably, with the current version of the shoe is sustainably made, composed of an upper made of polyester and a sole constituted from rubber waste.', 'Adidas'),
+(84, 'Jordan 1 Mid Taxi', 'IMG-646b739f761ed2.77481831.jpg', 8500, '2023-05-22 21:52:31', 'The Air Air Jordan 1 Mid Taxi was originally created by designer Peter Moore in 1985.', 'Jordan'),
+(85, 'Jordan 4 Military Black', 'IMG-646b74314ccbe1.59346247.png', 23955, '2023-05-22 21:54:57', 'Smooth white leather is utilized on the upper, bolstered with a forefoot overlay in grey suede.', 'Jordan'),
+(86, 'Adidas Yeezy 350 Frozen Yellow', 'IMG-646b7651c1e490.14689177.png', 13600, '2023-05-22 22:04:01', 'The Yeezy Boost 350 marked an entry into \"primeknit\" technology, utilizing flat knitting machinery amalgamated with synthetic yarns. A preliminary version was made of a combination of petroleum-based ethylene-vinyl acetate (EVA) and foam generated from al', 'Adidas'),
+(87, 'Jordan 4 Retro Union Off Noir', 'IMG-646b76b1e7cf05.11978121.png', 35000, '2023-05-22 22:05:37', ' black suede upper with matching black mesh on the toe box and blue mesh around the collar. The semi-translucent structural wings are attached to molded red eyelets, matching the woven Air Jordan tag atop the padded tongue and Nike Air branding on the hee', 'Jordan'),
+(88, 'Nike Blazer Mid 77 White and Red', 'IMG-646b773c9d68b9.26974276.png', 6500, '2023-05-22 22:07:56', 'Leather and synthetic upper keeps the classic look of the original while adding comfort and support. Vintage treatment on the midsole provides an old-school look.', 'Nike'),
+(89, 'Nike Waffle One Contrasts Muted Pastels With A Vib', 'IMG-646b7800e6d3b5.02279670.png', 35995, '2023-05-22 22:11:12', '35995', 'NIke'),
+(91, 'NIke Blazer Mid 77 Jumbo Pink Oxford (Womens)', 'IMG-646b79e0e41867.72894389.png', 6500, '2023-05-22 22:19:12', 'These sweet kicks start with a classic colourless upper featuring smooth white overlays along with a cloud-hued suede toe. ', 'Nike'),
+(92, 'Jordan Travis Scott Olive Green', 'IMG-646b7da9780992.43923554.jpg', 70000, '2023-05-22 22:35:21', ' \"Olive\" features a leather and suede upper in a black and white colorway with olive green accents. The sneakers showcase Cactus Jack branding in red and a vintage-style midsole.', 'Jordan');
 
 --
 -- Indexes for dumped tables
@@ -96,7 +95,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
