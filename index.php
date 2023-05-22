@@ -37,7 +37,7 @@
         <div class="container">
           <div class="row p-5">
             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-              <img class="img-fluid" src="./assets/img/nikelogo.png" alt="" />
+              <img class="img-fluid" src="./assets/img/R.R.M.M.png" alt="" />
             </div>
 
             <div class="col-lg-6 mb-0 d-flex align-items-center">

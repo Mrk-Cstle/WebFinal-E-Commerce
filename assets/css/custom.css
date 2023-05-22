@@ -42,3 +42,12 @@ color:rgb(2, 1, 1);
 .nav-logo{
     height: 70px;
 }
+.card-img{
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
+.card-layout{
+    height: 500px;
+    width: 300px;
+}
