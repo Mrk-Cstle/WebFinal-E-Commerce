@@ -5,11 +5,7 @@ include 'include/dbConnection.php';
 $userName = $_POST['userName'];
 $password = $_POST['password'];
 
-
-
-
-$loginQuery = "SELECT * FROM  login WHERE user='$userName' AND password='$password' ";
-
+$loginQuery = "SELECT * FROM login WHERE user='$userName' AND password='$password'";
 $result = mysqli_query($conn, $loginQuery);
 
 if (mysqli_num_rows($result) == 1) {
@@ -21,7 +17,9 @@ if (mysqli_num_rows($result) == 1) {
 
     if (isset($_SESSION['logged_in'])  == true) {
         // user is logged in
+
         header("location:addProduct.php");
+        exit();
     } else {
         // redirect to login page
         header("location:Login.php");

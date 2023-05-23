@@ -73,6 +73,7 @@
     <?php
     include 'include/nav.php';
     include 'include/selectDb.php';
+    include 'include/session.php';
     ?>
     <table class="table">
         <h1 class="orderList">Order List</h1>
@@ -119,7 +120,7 @@
                             <?php if ($i === 0) { ?>
                                 <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['total']; ?></td>
                                 <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['date']; ?></td>
-                                <td id="align" rowspan="<?php echo $rowCount; ?>"> sdfg</td>
+                                <td id="align" rowspan="<?php echo $rowCount; ?>"><a href="orderDone.php?id=<?php echo $row['pro_id']; ?>">Done</a></td>
 
                             <?php } ?>
 

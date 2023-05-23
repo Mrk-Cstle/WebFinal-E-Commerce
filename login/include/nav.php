@@ -1,3 +1,6 @@
+<?php
+include 'include/session.php';
+?>
 <nav id="navStyle" class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand text-success logo h1 align-self-center" href="Login.php">
@@ -20,7 +23,7 @@
                         <a class="nav-link" href="order.php">Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Log out</a>
+                        <a class="nav-link" href="logout.php">Log out</a>
                     </li>
 
 

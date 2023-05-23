@@ -1,5 +1,6 @@
 <?php
 include "include/dbConnection.php";
+session_start();
 // Retrieve the data from the AJAX request
 
 // Perform database operations here

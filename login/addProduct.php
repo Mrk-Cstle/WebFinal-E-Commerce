@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include 'include/session.php';
+
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -106,7 +109,8 @@
 
 <body>
     <?php
-    include 'include/nav.php'; ?>
+    include 'include/nav.php';
+    ?>
 
     <div class="backR">
         <form action="addProdDb.php" method="POST" enctype="multipart/form-data">
