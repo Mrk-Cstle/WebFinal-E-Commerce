@@ -25,11 +25,16 @@
             border: 1px solid black;
             padding: 20px;
             text-align: center;
+        }
 
+        .orderList {
+            text-align: center;
+            padding-top: 15px;
+            margin-bottom: 20px;
         }
 
         table {
-            width: 90%;
+            width: 100%;
         }
 
         .backR {
@@ -38,49 +43,6 @@
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-        }
-
-        .prodName {
-            padding: 12px 0px 10px 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            width: 40%;
-            margin-left: 50px;
-        }
-
-        .prodInput {
-            padding: 6px 0 10px 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            border-radius: 12px;
-            width: 30%;
-            margin-left: 50px;
-        }
-
-        .prodPrice {
-            padding: 6px 0 10px 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            border-radius: 12px;
-            width: 17%;
-            margin-left: 50px;
-        }
-
-        .prodUpload {
-            margin-bottom: 20px;
-            margin-left: 50px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        p {
-            margin-left: 50px;
-            margin-bottom: 50px;
-            font-size: 20px;
-            font-weight: bolder;
-            font-family: Arial, Helvetica, sans-serif;
-
-        }
-
-        .imgPath {
-            display: static;
-            width: auto;
         }
 
         tr,
@@ -100,30 +62,22 @@
         }
 
         #align {
-            padding-top: 90px;
+            padding-top: 60px;
             text-align: center;
             justify-content: center;
         }
 
-        h3 {
-            margin-left: 60px;
-            display: flex;
-        }
 
-        img {
-            width: auto;
-            height: 200px;
-        }
     </style>
 </head>
 
-<body>
+<body class="backR">
     <?php
     include 'include/nav.php';
     include 'include/selectDb.php';
     ?>
-    <table>
-        <h1>Order List</h1>
+    <table class="table">
+        <h1 class="orderList">Order List</h1>
         <tr>
             <th>Name</th>
             <th>Email</th>
@@ -154,17 +108,17 @@
         ?>
                         <tr>
                             <?php if ($i === 0) { ?>
-                                <td rowspan="<?php echo $rowCount; ?>"><?php echo $row['name']; ?></td>
-                                <td rowspan="<?php echo $rowCount; ?>"><?php echo $row['email']; ?></td>
-                                <td rowspan="<?php echo $rowCount; ?>"><?php echo $row['phone']; ?></td>
-                                <td rowspan="<?php echo $rowCount; ?>"><?php echo $row['address']; ?></td>
+                                <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['name']; ?></td>
+                                <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['email']; ?></td>
+                                <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['phone']; ?></td>
+                                <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['address']; ?></td>
                             <?php } ?>
                             <td><?php echo $productName; ?></td>
                             <td><?php echo $qty; ?></td>
                             <td><?php echo $price; ?></td>
                             <?php if ($i === 0) { ?>
-                                <td rowspan="<?php echo $rowCount; ?>"><?php echo $row['total']; ?></td>
-                                <td rowspan="<?php echo $rowCount; ?>"><?php echo $row['date']; ?></td>
+                                <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['total']; ?></td>
+                                <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['date']; ?></td>
                             <?php } ?>
                         </tr>
         <?php
@@ -176,7 +130,7 @@
             echo "<tr><td colspan='9'>0 result</td></tr></table>";
         }
         ?>
-
+    </table>
 </body>
 
 </html>
