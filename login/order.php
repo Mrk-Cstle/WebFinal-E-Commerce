@@ -66,8 +66,6 @@
             text-align: center;
             justify-content: center;
         }
-
-
     </style>
 </head>
 
@@ -88,6 +86,7 @@
             <th>Price</th>
             <th>Total</th>
             <th>Date</th>
+            <th>Action</th>
         </tr>
         <?php
         if ($resultGetOrders->num_rows > 0) {
@@ -112,6 +111,7 @@
                                 <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['email']; ?></td>
                                 <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['phone']; ?></td>
                                 <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['address']; ?></td>
+
                             <?php } ?>
                             <td><?php echo $productName; ?></td>
                             <td><?php echo $qty; ?></td>
@@ -119,7 +119,10 @@
                             <?php if ($i === 0) { ?>
                                 <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['total']; ?></td>
                                 <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['date']; ?></td>
+                                <td id="align" rowspan="<?php echo $rowCount; ?>"> sdfg</td>
+
                             <?php } ?>
+
                         </tr>
         <?php
                     }
