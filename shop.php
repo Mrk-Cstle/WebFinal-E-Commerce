@@ -107,45 +107,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="assets/img/jordanUnion.jpg">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">Jordan 4 Guava</a>
 
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>Size 7-12 Mens and Womens</li>
-                                    <a id="cartBtn" href="shop.php?pro_id=1" class="shop_btn btn btn-success">Add to Cart</a>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$250.00</p>
-                            </div>
-                        </div>
-                    </div>
 
                     <?php
                     include 'login/include/selectDb.php';
@@ -158,7 +120,7 @@
 
                     ?>
                             <div class="col-md-4">
-                                <div class="card mb-4 product-wap rounded-0">
+                                <div class="card-layout card mb-4 product-wap rounded-0">
                                     <div class="card rounded-0">
                                         <img class="card-img rounded-0 img-fluid" src="login/uploads/<?= $row['file_path'] ?>">
                                         <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
@@ -169,7 +131,7 @@
                                         <a href="shop-single.html" id="cartBtn" class=" h3 text-decoration-none"><?php echo $row['fname']; ?></a>
                                         <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li><?php echo $row['brand']; ?></li>
-                                            <a href="cart.php" class="cartBtn btn btn-success" data-pro-id="<?php echo $row['fname']; ?>">Add to Cart</a>
+
                                             <li class="pt-2">
                                                 <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
                                                 <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
@@ -179,7 +141,8 @@
                                             </li>
                                         </ul>
 
-                                        <p class="text-center mb-0">$ <?php echo $row['price']; ?></p>
+                                        <p class="text-center mb-0">P <?php echo $row['price']; ?></p>
+                                        <a href="cart.php" class="cartBtn btn btn-success" data-pro-id="<?php echo $row['fname']; ?>">Add to Cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -193,60 +156,13 @@
                     }
                     ?>
 
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="assets/img/AdidasSamba.png">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">Adidas Samba</a>
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>Size 6-12 Mens and Womens</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$250.00</p>
-                            </div>
-                        </div>
-                    </div>
 
 
 
 
 
                 </div>
-                <div div="row">
-                    <ul class="pagination pagination-lg justify-content-end">
-                        <li class="page-item disabled">
-                            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
-                        </li>
 
-                    </ul>
-                </div>
             </div>
 
         </div>
