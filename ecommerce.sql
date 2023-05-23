@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2023 at 04:38 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: May 23, 2023 at 05:21 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,6 +38,33 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`user`, `password`) VALUES
 ('qwe', 'qwe');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `pro_id` int(100) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` int(100) NOT NULL,
+  `address` longtext NOT NULL,
+  `productName` longtext NOT NULL,
+  `price` longtext NOT NULL,
+  `qty` longtext NOT NULL,
+  `total` int(11) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`pro_id`, `name`, `email`, `phone`, `address`, `productName`, `price`, `qty`, `total`, `date`) VALUES
+(405, '', '', 0, '', 'Jordan Travis Scott Olive Green, NIke Blazer Mid 77 Jumbo Pink Oxford (Womens), Nike Waffle One Contrasts Muted Pastels With A Vib, Nike Blazer Mid 77 White and Red', '70000, 6500, 35995, 6500', '1, 1, 1, 1', 118995, '2023-05-23'),
+(409, '', '', 0, '', 'Jordan Travis Scott Olive Green, NIke Blazer Mid 77 Jumbo Pink Oxford (Womens), Nike Waffle One Contrasts Muted Pastels With A Vib, Nike Blazer Mid 77 White and Red, Jordan 4 Retro Union Off Noir, Adidas Yeezy 350 Frozen Yellow', '70000, 6500, 35995, 6500, 35000, 13600', '1, 1, 1, 1, 1, 1', 167595, '2023-05-23');
 
 -- --------------------------------------------------------
 
@@ -82,6 +109,12 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`user`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`pro_id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -90,6 +123,12 @@ ALTER TABLE `product`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `pro_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=410;
 
 --
 -- AUTO_INCREMENT for table `product`
