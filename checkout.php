@@ -41,17 +41,6 @@ foreach ($productNames as $productName) {
 
 $ProdnameString = rtrim($ProdnameString, '<br>');
 
-// Prepare and execute the query to save all products in a single row
-$query = "INSERT INTO orders (productName, price, qty, total) VALUES ('$productNamesString', '$pricesString', '$quantitiesString', '$totalPrice')";
-if (mysqli_query($conn, $query)) {
-    // Clear the cart after successful checkout
-    $_SESSION['cart'] = array();
-
-    echo "Order placed successfully!";
-} else {
-    echo "Error inserting order: " . mysqli_error($conn);
-}
-
 // Close the database connection
 mysqli_close($conn);
 ?>
@@ -84,7 +73,7 @@ mysqli_close($conn);
           <h6 class="lead"><b>Delivery Charge : </b>Free</h6>
           <h5><b>Total Amount Payable : </b>Php <?= number_format($totalPrice,2) ?></h5>
         </div>
-        <form action="" method="post" id="placeOrder">
+        <form action="placeorder.php" method="post" id="placeOrder">
           <div class="form-group">
             <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
           </div>
@@ -92,7 +81,7 @@ mysqli_close($conn);
             <input type="email" name="email" class="form-control" placeholder="Enter E-Mail" required>
           </div>
           <div class="form-group">
-            <input type="tel" name="phone" class="form-control" placeholder="Enter Phone" required>
+            <input type="number" name="phone" class="form-control" placeholder="Enter Phone" required>
           </div>
           <div class="form-group">
             <textarea name="address" class="form-control" rows="3" cols="10" placeholder="Enter Delivery Address Here..."></textarea>
@@ -105,7 +94,7 @@ mysqli_close($conn);
             </select>
           </div>
           <div class="form-group">
-            <input type="submit" name="submit" value="Place Order" class="btn btn-danger btn-block">
+            <input type="submit" name="submit" value="Place Order" class="btn btn-danger btn-block" >
           </div>
         </form>
       </div>
@@ -115,39 +104,54 @@ mysqli_close($conn);
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
 
-  <script type="text/javascript">
-  $(document).ready(function() {
+  
 
-    // Sending Form data to the server
-    $("#placeOrder").submit(function(e) {
-      e.preventDefault();
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Function to send form data to the server
+    function submitFormData(formData) {
       $.ajax({
-        url: 'action.php',
+        url: 'placeorder.php',
         method: 'post',
-        data: $('form').serialize() + "&action=order",
+        data: formData,
         success: function(response) {
           $("#order").html(response);
         }
       });
+    }
+
+    // Sending Form data to the server
+    $("#placeOrder").submit(function(e) {
+      e.preventDefault();
+
+      // Retrieve form data
+      var formData = $(this).serializeArray();
+
+      // Add cart session data to form data
+      var cartData = <?php echo json_encode($_SESSION['cart']); ?>;
+      formData.push({name: 'cartData', value: JSON.stringify(cartData)});
+
+      // Call the function to submit form data
+      submitFormData(formData);
     });
 
-    // Load total no.of items added in the cart and display in the navbar
-    load_cart_item_number();
+    // Load total no. of items added to the cart and display in the navbar
+    $.ajax({
+      url: 'action.php',
+      method: 'get',
+      data: {
+        cartItem: "cart_item"
+      },
+      success: function(response) {
+        $("#cart-item").html(response);
 
-    function load_cart_item_number() {
-      $.ajax({
-        url: 'action.php',
-        method: 'get',
-        data: {
-          cartItem: "cart_item"
-        },
-        success: function(response) {
-          $("#cart-item").html(response);
-        }
-      });
-    }
+        // Call the function to submit form data
+        submitFormData([]);
+      }
+    });
   });
-  </script>
+</script>
+</script>
 </body>
 
 </html>
