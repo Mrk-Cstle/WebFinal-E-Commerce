@@ -1,5 +1,6 @@
 <?php
 include "include/dbConnection.php";
+session_start();
 // Retrieve the data from the AJAX request
 
 // Perform database operations here
@@ -41,7 +42,7 @@ if (isset($_POST['submit']) && isset($_POST['prodName']) && isset($_FILES['my_im
                 $uploadQuery = "INSERT INTO product (fname, price,file_path, info,brand ) VALUES ('$pName','$price','$new_img_name' ,'$description', '$brand')";
                 mysqli_query($conn, $uploadQuery);
 
-                header("Location: view.php");
+                header("Location: addProduct.php");
             } else {
                 $em = "You can't upload files of this type";
                 header("Location: addProduct.php?error=$em");

@@ -21,10 +21,20 @@
 
 </head>
 
+<style>
+
+  .btnCheck{
+    float: right;
+  }
+
+  .btnEmpty{
+    float: right;
+    margin-right: 30px;
+  }
+</style>
 <body>
   <div class="container">
     <table id="cartTable" class="table my-3">
-      <a href="emptycart.php" class="btn btn-sm btn-danger mt-2">Empty Cart</a>
       <thead>
         <tr class="text-center">
           <th>S.no</th>
@@ -55,7 +65,7 @@
                 <?= $cart['qty']; ?>
               </td>
               <td><?= $cart['price']; ?></td>
-
+              
               <td> <a class="btn btn-sm btn-danger removeCartItem" data-pro-id="<?= $cart['pro_id']; ?>">Remove</a></td>
             </tr>
         <?php
@@ -70,7 +80,11 @@
         ?>
       </tbody>
 
+      
+
     </table>
+    <a href="checkout.php" class="btnCheck btn btn-sm btn-success <?= ($totalPrice > 1)?'':'disabled'; ?>" >Checkout</a>
+    <a href="emptycart.php" class="btnEmpty btn btn-sm btn-danger">Empty Cart</a>
   </div>
   <!-- jQuery AJAX code -->
   <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>

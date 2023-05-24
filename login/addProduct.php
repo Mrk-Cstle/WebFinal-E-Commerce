@@ -1,6 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
+<?php
+include 'include/selectDb.php';
+include 'include/session.php';
+
+// Function to update the item in the database
+function updateItem($conn, $itemId, $name, $brand, $price, $info)
+{
+    // Perform the necessary database update query
+    // Replace 'your_table_name' with your actual table name
+    $updateQuery = "UPDATE product SET fname = '$name', brand = '$brand', price = '$price', info = '$info' WHERE product_id = $itemId";
+    // Execute the query
+    mysqli_query($conn, $updateQuery);
+}
+
+// Check if the form is submitted
+if (isset($_POST['update'])) {
+    $itemId = $_POST['itemId'];
+    $name = $_POST['name'];
+    $brand = $_POST['brand'];
+    $price = $_POST['price'];
+    $info = $_POST['info'];
+
+    // Call the updateItem function to update the item in the database
+    updateItem($conn, $itemId, $name, $brand, $price, $info);
+
+    // Redirect to the page after updating the item
+    header("Location: addProduct.php");
+    exit();
+}
+
+// Retrieve the item to be edited from the database
+if (isset($_GET['edit_id'])) {
+    $editId = $_GET['edit_id'];
+    // Replace 'your_table_name' with your actual table name
+    $editQuery = "SELECT * FROM product WHERE product_id = $editId";
+    $editResult = mysqli_query($conn, $editQuery);
+
+    if (mysqli_num_rows($editResult) > 0) {
+        $editRow = mysqli_fetch_assoc($editResult);
+    }
+}
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,6 +111,32 @@
 
     }
 
+    #Edititem {
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    #Edit {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #New {
+        margin-bottom: 10px;
+        width: 25%;
+        border-radius: 12px;
+    }
+
+    #newPrice {
+        margin-bottom: 10px;
+        width: 10%;
+        margin-right: 285px;
+        border-radius: 12px;
+    }
+
     .imgPath {
         display: static;
         width: auto;
@@ -88,7 +159,7 @@
     }
 
     #align {
-        padding-top: 90px;
+        padding-top: 50px;
         text-align: center;
         justify-content: center;
     }
@@ -106,7 +177,8 @@
 
 <body>
     <?php
-    include 'include/nav.php'; ?>
+    include 'include/nav.php';
+    ?>
 
     <div class="backR">
         <form action="addProdDb.php" method="POST" enctype="multipart/form-data">
@@ -133,9 +205,25 @@
 
         </form>
 
+
+
         <div>
+
             <?php
-            include 'include/selectDb.php';
+            // Display the form for editing if an item is being edited
+            if (isset($editRow)) {
+            ?>
+                <h3 id="Edititem">Edit Item</h3>
+                <form id="Edit" method="POST" action="updateItem.php">
+                    <input id="New" type="hidden" name="itemId" value="<?php echo $editRow['product_id']; ?>">
+                    <input id="New" type="text" name="name" value="<?php echo $editRow['fname']; ?>" placeholder="Product Name" required /><br />
+                    <input id="New" type="text" name="brand" value="<?php echo $editRow['brand']; ?>" placeholder="Brand" required /><br />
+                    <input id="newPrice" type="number" name="price" value="<?php echo $editRow['price']; ?>" placeholder="Price" required /><br />
+                    <textarea id="New" name="info" placeholder="Description" required><?php echo $editRow['info']; ?></textarea><br />
+                    <input type="submit" name="update" value="Update" class="btn btn-primary" />
+                </form>
+            <?php
+            }
             ?>
             <h3>Product List</h3>
             <table class="table table-hover">
@@ -145,12 +233,11 @@
                     <th>Brand</th>
                     <th>Price</th>
                     <th>Description</th>
+                    <th>Action</th>
                 </tr>
                 <?php
                 if (mysqli_num_rows($resultProd) > 0) {
-
-                    while ($row  = $resultProd->fetch_assoc()) {
-
+                    while ($row  = mysqli_fetch_assoc($resultProd)) {
                 ?>
 
                         <tr>
@@ -159,9 +246,13 @@
                             <td id="align"><?php echo $row['brand']; ?></td>
                             <td id="align"><?php echo $row['price']; ?></td>
                             <td id="align"><?php echo $row['info']; ?></td>
-                            <td id="align"><a href="createStaffDelete.php?id=<?php echo $row['product_id']; ?>">Remove</a></td>
-
+                            <td id="align">
+                                <a class="btn btn-sm btn-dark m-2 w-75" href="?edit_id=<?php echo $row['product_id']; ?>">Edit</a>
+                                <a class="btn btn-sm btn-dark" href="addProdDelete.php?id=<?php echo $row['product_id']; ?>">Remove</a>
+                            </td>
                         </tr>
+
+
 
 
 
@@ -170,17 +261,35 @@
                     }
                     echo "</table>";
                 } else {
-                    echo "<tr><td>" . "0 result" . "</td><td></table>";
+                    echo "<tr><td colspan='6'>" . "0 results" . "</td></tr>";
                 }
                 ?>
             </table>
+
+
         </div>
     </div>
 
 
 
-
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        function editItem(itemId) {
+            // Send an AJAX request to fetch the edit form
+            $.ajax({
+                url: 'addProduct.php',
+                type: 'POST',
+                data: {
+                    id: itemId
+                },
+                success: function(response) {
+                    // Display the edit form in a modal or a specific area of the page
+                    $('#editModal').html(response);
+                    $('#editModal').modal('show');
+                }
+            });
+        }
+    </script>
     <!-- <script>
         $(document).ready(function() {
             // Handle form submission

@@ -1,5 +1,34 @@
+<?php
+
+include 'include/dbConnection.php';
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $userName = $_POST['userName'];
+    $password = $_POST['password'];
+
+    // Perform database query to check login credentials
+    $loginQuery = "SELECT * FROM login WHERE user = '$userName' AND password = '$password'";
+    $result = mysqli_query($conn, $loginQuery);
+
+    if (mysqli_num_rows($result) == 1) {
+        // Valid login credentials
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['user'] = $row['user'];
+        $_SESSION['logged_in'] = true;
+        session_start();
+        header("location: addProduct.php");
+        exit;
+    } else {
+        // Invalid login credentials
+        $error = "Invalid username or password.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -12,35 +41,32 @@
     <title>RRMM | Login</title>
 </head>
 
-<body>
-    <div class="box">
-        <div class="container">
-            <div class="top">
-
-                <header>Login</header>
-
-                <form id="myForm" method="POST" action="adminDb.php">
-
-
-                    <div class="input-field">
-                        <input type="text" class="input" placeholder="Username" name="userName">
-                        <i class='bx bx-user'></i>
-                    </div>
-                    <div class="input-field">
-                        <input type="Password" class="input" placeholder="Password" name="password">
-                        <i class='bx bx-lock-alt'></i>
-                    </div>
-                    <div class="input-field">
-                        <input type="submit" class="submit" value="Login">
-                    </div>
-                </form>
-            </div>
-
+<div class="box">
+    <div class="container">
+        <div class="top">
+            <header>Login</header>
+            <form id="myForm" method="POST" action="">
+                <?php if (isset($error)) { ?>
+                    <div class="error"><?php echo $error; ?></div>
+                <?php } ?>
+                <div class="input-field">
+                    <input type="text" class="input" placeholder="Username" name="userName">
+                    <i class='bx bx-user'></i>
+                </div>
+                <div class="input-field">
+                    <input type="password" class="input" placeholder="Password" name="password">
+                    <i class='bx bx-lock-alt'></i>
+                </div>
+                <div class="input-field">
+                    <input type="submit" class="submit" value="Login">
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+</script>
 
 
 </body>

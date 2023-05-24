@@ -1,6 +1,6 @@
 <nav id="navStyle" class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand text-success logo h1 align-self-center" href="login/Login.php">
+        <a class="navbar-brand text-success logo h1 align-self-center" href="index.php">
             <img class="nav-logo" src="assets/img/rrmm_logo.png">
         </a>
 
@@ -22,6 +22,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="shop.php">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login/Login.php">Login</a>
                     </li>
 
                 </ul>
