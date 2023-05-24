@@ -163,7 +163,7 @@
                             <td id="align"><?php echo $row['brand']; ?></td>
                             <td id="align"><?php echo $row['price']; ?></td>
                             <td id="align"><?php echo $row['info']; ?></td>
-                            <td id="align"><a href="createStaffDelete.php?id=<?php echo $row['product_id']; ?>">Remove</a></td>
+                            <td id="align"><a href="addProdDelete.php?id=<?php echo $row['product_id']; ?>">Remove</a></td>
 
                         </tr>
 
