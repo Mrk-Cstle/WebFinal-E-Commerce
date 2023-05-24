@@ -248,7 +248,7 @@ if (isset($_GET['edit_id'])) {
                             <td id="align"><?php echo $row['info']; ?></td>
                             <td id="align">
                                 <a class="btn btn-sm btn-dark m-2 w-75" href="?edit_id=<?php echo $row['product_id']; ?>">Edit</a>
-                                <a class="btn btn-sm btn-dark" href="createStaffDelete.php?id=<?php echo $row['product_id']; ?>">Remove</a>
+                                <a class="btn btn-sm btn-dark" href="addProdDelete.php?id=<?php echo $row['product_id']; ?>">Remove</a>
                             </td>
                         </tr>
 
