@@ -62,9 +62,12 @@
         }
 
         #align {
-            padding-top: 60px;
+            padding-top: 80px;
             text-align: center;
             justify-content: center;
+        }
+
+        #alignThis {
         }
     </style>
 </head>
@@ -120,7 +123,7 @@
                             <?php if ($i === 0) { ?>
                                 <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['total']; ?></td>
                                 <td id="align" rowspan="<?php echo $rowCount; ?>"><?php echo $row['date']; ?></td>
-                                <td id="align" rowspan="<?php echo $rowCount; ?>"><a href="orderDone.php?id=<?php echo $row['pro_id']; ?>">Done</a></td>
+                                <td id="align" rowspan="<?php echo $rowCount; ?>"><a class="btn btn-sm btn-success" href="orderDone.php?id=<?php echo $row['pro_id']; ?>">Done</a></td>
 
                             <?php } ?>
 
